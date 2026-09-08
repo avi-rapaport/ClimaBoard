@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query, HTTPException
 from servisces.weather_service import fetch_city_data
 
-router = APIRouter(tags=["cities"])
+router = APIRouter(tags=["Cities"])
 
 
 @router.get("/search")

@@ -28,12 +28,12 @@ def fetch_city_data(city_name: str):
     return cities_list
 
 
-def get_current_weather(lat: float, lon: float):
+def fetch_current_weather(lat: float, lon: float):
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
         "latitude": lat,
         "longitude": lon,
-        "current": ["temperature_2m", "relative_humidity_2m", "wind_speed_10"],
+        "current": ["temperature_2m", "relative_humidity_2m", "wind_speed_10m"],
     }
 
     response = requests.get(url, params)
@@ -52,12 +52,12 @@ def get_current_weather(lat: float, lon: float):
     }
 
 
-def get_forecast(lat: float, lon: float):
+def fetch_forecast(lat: float, lon: float):
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
         "latitude": lat,
         "longitude": lon,
-        "hourly": ["temperature_2m", "relative_humidity_2m", "wind_speed_10"],
+        "daily": ["temperature_2m", "relative_humidity_2m", "wind_speed_10"],
     }
 
     response = requests.get(url, params)
