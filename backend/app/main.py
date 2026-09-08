@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routers.cities_router import router as cities_router
 
 app = FastAPI()
 
@@ -14,6 +15,4 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-async def main():
-    return {"message": "Hello World"}
+app.include_router(cities_router, prefix="/weather")

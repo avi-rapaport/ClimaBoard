@@ -1,7 +1,7 @@
 import requests
 
 
-def search_cities(city_name: str):
+def fetch_city_data(city_name: str):
     url = "https://geocoding-api.open-meteo.com/v1/search"
     params = {"name": city_name, "count": 10}
 
