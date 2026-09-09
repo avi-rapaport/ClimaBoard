@@ -33,7 +33,13 @@ def fetch_current_weather(lat: float, lon: float):
     params = {
         "latitude": lat,
         "longitude": lon,
-        "current": ["temperature_2m", "relative_humidity_2m", "wind_speed_10m"],
+        "current": [
+            "weather_code",
+            "temperature_2m",
+            "relative_humidity_2m",
+            "wind_speed_10m",
+            "precipitation",
+        ],
     }
 
     response = requests.get(url, params)
@@ -46,7 +52,9 @@ def fetch_current_weather(lat: float, lon: float):
         return None
 
     return {
+        "code": current.get("weather_code"),
         "temperature": current.get("temperature_2m"),
+        "precipitation": current.get("precipitation"),
         "humidity": current.get("relative_humidity_2m"),
         "wind_speed": current.get("wind_speed_10m"),
     }
@@ -57,7 +65,15 @@ def fetch_forecast(lat: float, lon: float):
     params = {
         "latitude": lat,
         "longitude": lon,
-        "daily": ["temperature_2m", "relative_humidity_2m", "wind_speed_10"],
+        "daily": [
+            "weather_code",
+            "temperature_2m_max",
+            "temperature_2m_min",
+            "relative_humidity_2m_min",
+            "relative_humidity_2m_max",
+            "wind_speed_10m_max",
+            "precipitation_probability_max",
+        ],
     }
 
     response = requests.get(url, params)
@@ -69,13 +85,27 @@ def fetch_forecast(lat: float, lon: float):
         return []
 
     times = daily.get("time", [])
+    codes = daily.get("weather_code", [])
+    print(codes)
     temps_max = daily.get("temperature_2m_max", [])
     temps_min = daily.get("temperature_2m_min", [])
+    humidity_max = daily.get("relative_humidity_2m_min", [])
+    humidity_min = daily.get("relative_humidity_2m_max", [])
+    winds = daily.get("wind_speed_10m_max", [])
+    precipitation = daily.get("precipitation_probability_max", [])
 
     forecasts_list = []
     for i in range(len(times)):
         forecasts_list.append(
-            {"date": times[i], "temp_max": temps_max[i], "temp_min": temps_min[i]}
+            {
+                "date": times[i],
+                "code": codes[i],
+                "temp_max": temps_max[i],
+                "temp_min": temps_min[i],
+                "prep": precipitation[i],
+                "humidity": (humidity_max[i] + humidity_min[i]) / 2,
+                "wind": winds[i],
+            }
         )
 
     return forecasts_list
