@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  border-bottom: 0.9px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 1rem;
+  background-color: white;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  background-color: white;
+  border-top: 0.9px solid black;
+  padding: 1rem;
+}
+
+.logo-img {
+  width: 10rem;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: blue;
+}
+
+.nav-active {
+  text-decoration: none;
+  color: green;
+  border-bottom: 1px solid green;
+}
+
+.logout-btn {
+  border-bottom: 1px solid black;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.login-page {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  height: 100vh;
+}
+
+.login-headline {
+  font-size: 4rem;
+}
+
+.register {
+  background-color: blue;
+  width: 50%;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-input {
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.reg-btn {
+  width: 50%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.dash-page {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.dash-headline {
+  font-size: 5rem;
+}
