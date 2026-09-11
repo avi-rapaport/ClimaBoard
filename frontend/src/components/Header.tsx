@@ -17,17 +17,17 @@ const Header = () => {
         </NavLink>
 
         <NavLink
-          to="/weather"
+          to="/search"
           className={({ isActive }) => (isActive ? 'nav-active' : 'nav-item')}
         >
-          Weather
+          Search
         </NavLink>
 
         <NavLink
-          to="/compare"
+          to="/favorites"
           className={({ isActive }) => (isActive ? 'nav-active' : 'nav-item')}
         >
-          Compare
+          Favorites
         </NavLink>
       </nav>
 

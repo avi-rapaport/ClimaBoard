@@ -86,7 +86,6 @@ def fetch_forecast(lat: float, lon: float):
 
     times = daily.get("time", [])
     codes = daily.get("weather_code", [])
-    print(codes)
     temps_max = daily.get("temperature_2m_max", [])
     temps_min = daily.get("temperature_2m_min", [])
     humidity_max = daily.get("relative_humidity_2m_min", [])

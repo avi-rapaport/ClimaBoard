@@ -3,8 +3,9 @@ import LoginPage from '../pages/LoginPage';
 import Layout from '../Layout';
 import ProtectedRoutes from './ProtectedRoutes';
 import DashboardPage from '../pages/DashboardPage';
-import WeatherPage from '../pages/WeatherPage';
-import ComparePage from '../pages/ComparePage';
+import NotFoundPage from '../pages/NotFoundPage';
+import FavoritesPage from '../pages/FavoritesPage';
+import SearchPage from '../pages/SearchPage';
 
 const AppRoutes = () => {
   return (
@@ -15,12 +16,12 @@ const AppRoutes = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="weather" element={<WeatherPage />} />
-          <Route path="compare" element={<ComparePage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="favorites" element={<FavoritesPage />} />
         </Route>
       </Route>
 
-      <Route path="*" element="404 Page not found" />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

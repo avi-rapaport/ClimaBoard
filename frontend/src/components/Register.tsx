@@ -6,6 +6,7 @@ const Register = () => {
   const login = useAuthStore((state) => state.login);
   const [name, setName] = useState('');
   const navigate = useNavigate();
+
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 

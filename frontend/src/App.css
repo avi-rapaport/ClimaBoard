@@ -32,6 +32,15 @@
   padding: 1rem;
 }
 
+.not-found-page {
+  font-size: 4rem;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .logo-img {
   width: 10rem;
 }
@@ -54,9 +63,11 @@
 }
 
 .logout-btn {
-  border-bottom: 1px solid black;
+  border: 1px solid black;
   padding: 0.3rem;
   cursor: pointer;
+  border-radius: 10px;
+  background-color: grey;
 }
 
 .login-page {
@@ -99,10 +110,46 @@
 
 .dash-page {
   display: flex;
+  flex-direction: column;
   padding: 2rem;
-  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .dash-headline {
   font-size: 5rem;
+}
+
+.quick-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  min-width: 90%;
+}
+
+.quick-card {
+  background-color: blanchedalmond;
+  padding: 3rem 4rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.current-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: rgb(211, 238, 157);
+  min-width: 90%;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.current-info {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.7rem;
+}
+
+.current-icon {
+  size: 2rem;
 }

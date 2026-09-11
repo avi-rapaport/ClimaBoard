@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-.venv
+# Python virtual environments & cache
+.venv/
+venv/
+__pycache__/
+*.pyc
